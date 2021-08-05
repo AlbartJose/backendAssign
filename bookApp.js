@@ -51,8 +51,11 @@ function appBook() {
 
 
         } else if (option == "3") {
-            console.log("Bye,Bye and Thank You");
-            readline1.close();
+            readline1.question("Are you sure you want to quit(Y/N): ", (check) => {
+                if (check == "Y" || check == "y") readline1.close();
+                else appBook();
+            });
+
         }
         else {
             console.log("Input option not correct, Please input 1 , 2 or 3");
@@ -62,6 +65,7 @@ function appBook() {
     })
 
     readline1.on("close", () => {
+        console.log("Bye,Bye and Thank You");
     })
 
 }
